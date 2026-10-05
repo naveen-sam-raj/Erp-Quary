@@ -88,35 +88,43 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 md:px-6 bg-[#fdfbf7]/90 dark:bg-[#231913]/90 backdrop-blur-md border-b border-[#ede0cb] dark:border-[#3a281d] transition-colors">
-      {/* Left section: Toggle & Breadcrumbs */}
-      <div className="flex items-center gap-3 md:gap-4">
+    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-3 md:px-6 bg-[#fdfbf7]/90 dark:bg-[#231913]/90 backdrop-blur-md border-b border-[#ede0cb] dark:border-[#3a281d] transition-colors">
+      {/* Left section: 3-Lines Mobile/Desktop Toggle & Breadcrumbs */}
+      <div className="flex items-center gap-2.5 md:gap-4">
+        {/* 3-Lines Hamburger Menu Button */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2 text-[#68442b] dark:text-[#d7c4b7] hover:bg-[#ede0cb]/60 dark:hover:bg-[#342318] rounded-lg transition-colors focus:outline-none"
-          title="Toggle Sidebar"
+          className="p-2 bg-[#ede0cb]/50 dark:bg-[#342318] text-[#92400e] dark:text-[#fbbf24] hover:bg-[#ede0cb] dark:hover:bg-[#4a3426] rounded-xl transition-colors focus:outline-none flex items-center justify-center border border-[#dec7a5]/40"
+          title="Toggle Navigation Menu"
+          aria-label="Toggle Navigation Menu"
         >
-          <Menu className="w-5 h-5" />
+          <Menu className="w-6 h-6 stroke-[2.5]" />
         </button>
 
-        {/* Breadcrumb */}
-        <nav className="hidden sm:flex items-center gap-2 text-sm text-[#785438] dark:text-[#c4b1a3]">
-          <Link to="/" className="hover:text-[#92400e] dark:hover:text-[#fbbf24] transition-colors font-medium">
+        {/* Mobile Brand Name / Breadcrumb */}
+        <div className="flex items-center gap-2">
+          <Link to="/" className="lg:hidden font-extrabold text-xs text-[#2b1b10] dark:text-white truncate max-w-[140px]">
             ANNAI BLUE METAL
           </Link>
-          {breadcrumbs.map((crumb, idx) => (
-            <React.Fragment key={idx}>
-              <ChevronRight className="w-3.5 h-3.5 text-[#b48c4d]" />
-              <span className={idx === breadcrumbs.length - 1 ? 'font-bold text-[#2b1b10] dark:text-white' : ''}>
-                {crumb}
-              </span>
-            </React.Fragment>
-          ))}
-        </nav>
+
+          <nav className="hidden sm:flex items-center gap-2 text-sm text-[#785438] dark:text-[#c4b1a3]">
+            <Link to="/" className="hover:text-[#92400e] dark:hover:text-[#fbbf24] transition-colors font-medium">
+              ANNAI BLUE METAL
+            </Link>
+            {breadcrumbs.map((crumb, idx) => (
+              <React.Fragment key={idx}>
+                <ChevronRight className="w-3.5 h-3.5 text-[#b48c4d]" />
+                <span className={idx === breadcrumbs.length - 1 ? 'font-bold text-[#2b1b10] dark:text-white' : ''}>
+                  {crumb}
+                </span>
+              </React.Fragment>
+            ))}
+          </nav>
+        </div>
       </div>
 
       {/* Right section */}
-      <div className="flex items-center gap-2 md:gap-3">
+      <div className="flex items-center gap-1.5 md:gap-3">
         {/* Quick Search */}
         <div className="relative hidden md:block" ref={searchRef}>
           <div className="relative flex items-center">
