@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-biscuit-50: #fdfbf7;
+  --color-biscuit-100: #f7f0e3;
+  --color-biscuit-200: #ede0cb;
+  --color-biscuit-300: #dec7a5;
+  --color-biscuit-400: #cbaa75;
+  --color-biscuit-500: #b48c4d;
+  --color-biscuit-600: #986d37;
+  --color-biscuit-700: #7b522c;
+  --color-biscuit-800: #664327;
+  --color-biscuit-900: #543722;
+  --color-biscuit-950: #2b1b10;
+
+  --color-caramel-50: #fffbeb;
+  --color-caramel-100: #fef3c7;
+  --color-caramel-500: #d97706;
+  --color-caramel-600: #b45309;
+  --color-caramel-700: #92400e;
+  --color-caramel-800: #78350f;
+  --color-caramel-900: #451a03;
+}
+
+@layer base {
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f7f0e3;
+    color: #3b281c;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 140, 77, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 140, 77, 0.7);
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
