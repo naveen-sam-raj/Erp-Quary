@@ -76,7 +76,7 @@ export default function DashboardPage() {
     ]
   }[timeFilter];
 
-  // Stock Distribution Pie Chart Data (Warm Biscuit Palette)
+  // Stock Distribution Pie Chart Data
   const stockDistribution = [
     { name: 'Aggregate 20mm/40mm', value: 375, color: '#92400e' },
     { name: 'Sand (M-Sand/P-Sand)', value: 77, color: '#d97706' },
@@ -88,133 +88,133 @@ export default function DashboardPage() {
   const lowStockItems = products.filter(p => p.stock < p.minStock);
 
   return (
-    <div className="p-4 md:p-6 space-y-6 max-w-[1600px] mx-auto animate-fade-in">
-      {/* Top Welcome Header (Warm Biscuit Roasted Coffee Banner) */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-[#543722] via-[#7b522c] to-[#451a03] text-white p-6 rounded-3xl shadow-xl border border-[#986d37]/40 relative overflow-hidden">
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-semibold text-[#f7f0e3] border border-white/20 mb-2">
+    <div className="p-3 sm:p-4 md:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto animate-fade-in">
+      {/* Top Welcome Header (Optimized Mobile Layout) */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#543722] via-[#7b522c] to-[#451a03] text-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl border border-[#986d37]/40 relative overflow-hidden">
+        <div className="relative z-10 space-y-1">
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-white/10 backdrop-blur-md rounded-full text-[11px] font-semibold text-[#f7f0e3] border border-white/20">
             <span className="w-2 h-2 rounded-full bg-[#86efac] animate-ping"></span>
             Crusher Unit 1 Operating Live
           </div>
-          <h1 className="text-2xl md:text-3xl font-black tracking-tight">Good Morning!</h1>
-          <p className="text-[#ede0cb] text-xs md:text-sm font-medium mt-1">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight">Good Morning!</h1>
+          <p className="text-[#ede0cb] text-xs sm:text-sm font-medium">
             ANNAI BLUE METAL – Business & Quarry Operations Overview
           </p>
         </div>
 
-        <div className="relative z-10 flex flex-wrap items-center gap-3">
+        <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
           <Link
             to="/inventory/sales-billing"
-            className="px-5 py-2.5 bg-[#15803d] hover:bg-[#166534] text-white font-bold text-xs rounded-2xl flex items-center gap-2 shadow-lg shadow-emerald-950/40 transition-all hover:scale-105"
+            className="px-4 py-2.5 bg-[#15803d] hover:bg-[#166534] text-white font-bold text-xs rounded-xl sm:rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40 transition-all active:scale-95"
           >
             <ShoppingCart className="w-4 h-4" /> Create Sales Bill (POS)
           </Link>
           <button
             onClick={() => navigate('/masters/products')}
-            className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-2xl border border-white/20 transition-all"
+            className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-xl sm:rounded-2xl border border-white/20 transition-all text-center"
           >
             + Add Product
           </button>
         </div>
 
         {/* Ambient background glow */}
-        <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-[#b48c4d]/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -right-10 -bottom-10 w-48 h-48 sm:w-60 sm:h-60 bg-[#b48c4d]/20 rounded-full blur-3xl pointer-events-none"></div>
       </div>
 
-      {/* Top 6 KPI Metric Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {/* Top 6 KPI Metric Cards (Responsive Grid: 2 columns on mobile, 3 on tablet, 6 on desktop) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
         {/* 1. Today's Sales */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-xs font-medium">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
+          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-[11px] sm:text-xs font-medium">
             <span>Today's Sales</span>
-            <div className="w-8 h-8 rounded-xl bg-[#fef3c7] dark:bg-[#382614] text-[#92400e] dark:text-[#fbbf24] flex items-center justify-center">
-              <TrendingUp className="w-4 h-4" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#fef3c7] dark:bg-[#382614] text-[#92400e] dark:text-[#fbbf24] flex items-center justify-center shrink-0">
+              <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="text-xl font-extrabold text-[#2b1b10] dark:text-white mt-2">₹1,93,350</div>
-          <div className="flex items-center gap-1 text-[11px] font-bold text-[#15803d] dark:text-[#86efac] mt-1">
-            <ArrowUpRight className="w-3.5 h-3.5" /> +14.2% vs yesterday
+          <div className="text-base sm:text-xl font-extrabold text-[#2b1b10] dark:text-white mt-1.5 truncate">₹1,93,350</div>
+          <div className="flex items-center gap-0.5 text-[10px] sm:text-[11px] font-bold text-[#15803d] dark:text-[#86efac] mt-1">
+            <ArrowUpRight className="w-3 h-3" /> +14.2%
           </div>
         </div>
 
         {/* 2. Today's Purchase */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-xs font-medium">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
+          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-[11px] sm:text-xs font-medium">
             <span>Today's Purchase</span>
-            <div className="w-8 h-8 rounded-xl bg-[#ffedf0] dark:bg-[#3a1d22] text-rose-700 flex items-center justify-center">
-              <ShoppingCart className="w-4 h-4" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#ffedf0] dark:bg-[#3a1d22] text-rose-700 flex items-center justify-center shrink-0">
+              <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="text-xl font-extrabold text-[#2b1b10] dark:text-white mt-2">₹1,24,500</div>
-          <div className="text-[11px] font-medium text-[#785438] mt-1">Raw boulder & fuel</div>
+          <div className="text-base sm:text-xl font-extrabold text-[#2b1b10] dark:text-white mt-1.5 truncate">₹1,24,500</div>
+          <div className="text-[10px] sm:text-[11px] font-medium text-[#785438] mt-1 truncate">Raw boulder</div>
         </div>
 
         {/* 3. Total Receivables */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-xs font-medium">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
+          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-[11px] sm:text-xs font-medium">
             <span>Total Receivables</span>
-            <div className="w-8 h-8 rounded-xl bg-[#fef3c7] dark:bg-[#382614] text-[#92400e] flex items-center justify-center">
-              <DollarSign className="w-4 h-4" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#fef3c7] dark:bg-[#382614] text-[#92400e] flex items-center justify-center shrink-0">
+              <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="text-xl font-extrabold text-[#92400e] dark:text-[#fbbf24] mt-2">₹4,82,600</div>
-          <div className="text-[11px] text-[#b45309] font-medium mt-1">5 clients outstanding</div>
+          <div className="text-base sm:text-xl font-extrabold text-[#92400e] dark:text-[#fbbf24] mt-1.5 truncate">₹4,82,600</div>
+          <div className="text-[10px] sm:text-[11px] text-[#b45309] font-medium mt-1 truncate">5 clients</div>
         </div>
 
         {/* 4. Total Payables */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-xs font-medium">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
+          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-[11px] sm:text-xs font-medium">
             <span>Total Payables</span>
-            <div className="w-8 h-8 rounded-xl bg-[#fee2e2] dark:bg-[#3f1919] text-rose-700 flex items-center justify-center">
-              <TrendingDown className="w-4 h-4" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#fee2e2] dark:bg-[#3f1919] text-rose-700 flex items-center justify-center shrink-0">
+              <TrendingDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="text-xl font-extrabold text-rose-700 dark:text-rose-400 mt-2">₹2,76,400</div>
-          <div className="text-[11px] text-rose-600 font-medium mt-1">Suppliers & machinery</div>
+          <div className="text-base sm:text-xl font-extrabold text-rose-700 dark:text-rose-400 mt-1.5 truncate">₹2,76,400</div>
+          <div className="text-[10px] sm:text-[11px] text-rose-600 font-medium mt-1 truncate">Suppliers</div>
         </div>
 
         {/* 5. Stock Value */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-xs font-medium">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all">
+          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-[11px] sm:text-xs font-medium">
             <span>Stock Value</span>
-            <div className="w-8 h-8 rounded-xl bg-[#ede0cb] dark:bg-[#342318] text-[#543722] dark:text-[#f7f0e3] flex items-center justify-center">
-              <Boxes className="w-4 h-4" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#ede0cb] dark:bg-[#342318] text-[#543722] dark:text-[#f7f0e3] flex items-center justify-center shrink-0">
+              <Boxes className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="text-xl font-extrabold text-[#2b1b10] dark:text-white mt-2">₹12,45,800</div>
-          <div className="text-[11px] text-[#15803d] dark:text-[#86efac] font-medium mt-1">1,972 Ton Total Stock</div>
+          <div className="text-base sm:text-xl font-extrabold text-[#2b1b10] dark:text-white mt-1.5 truncate">₹12,45,800</div>
+          <div className="text-[10px] sm:text-[11px] text-[#15803d] dark:text-[#86efac] font-medium mt-1 truncate">1,972 Ton</div>
         </div>
 
         {/* 6. Today's Profit */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all border-l-4 border-l-[#15803d]">
-          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-xs font-medium">
-            <span>Today's Net Profit</span>
-            <div className="w-8 h-8 rounded-xl bg-[#d1fae5] dark:bg-[#163e26] text-[#15803d] flex items-center justify-center">
-              <TrendingUp className="w-4 h-4" />
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] hover:shadow-md transition-all border-l-4 border-l-[#15803d]">
+          <div className="flex justify-between items-center text-[#85542e] dark:text-[#c4b1a3] text-[11px] sm:text-xs font-medium">
+            <span>Today's Profit</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#d1fae5] dark:bg-[#163e26] text-[#15803d] flex items-center justify-center shrink-0">
+              <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="text-xl font-black text-[#15803d] dark:text-[#86efac] mt-2">₹68,450</div>
-          <div className="text-[11px] text-[#15803d] font-bold mt-1">Margin ~35.4%</div>
+          <div className="text-base sm:text-xl font-black text-[#15803d] dark:text-[#86efac] mt-1.5 truncate">₹68,450</div>
+          <div className="text-[10px] sm:text-[11px] text-[#15803d] font-bold mt-1 truncate">Margin ~35.4%</div>
         </div>
       </div>
 
       {/* Main Charts & Analytics Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Sales vs Purchase Recharts Area */}
-        <div className="lg:col-span-2 bg-[#fdfbf7] dark:bg-[#231913] p-5 rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#ede0cb] dark:border-[#3a281d]">
+        <div className="lg:col-span-2 bg-[#fdfbf7] dark:bg-[#231913] p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-[#ede0cb] dark:border-[#3a281d]">
             <div>
-              <h2 className="text-base font-bold text-[#2b1b10] dark:text-white">Sales & Purchase Overview</h2>
-              <p className="text-xs text-[#85542e] dark:text-[#c4b1a3]">Revenue trends, material purchase cost, and net margins</p>
+              <h2 className="text-sm sm:text-base font-bold text-[#2b1b10] dark:text-white">Sales & Purchase Overview</h2>
+              <p className="text-[11px] sm:text-xs text-[#85542e] dark:text-[#c4b1a3]">Revenue trends, material purchase cost, and net margins</p>
             </div>
 
-            {/* Time Filter Pills */}
-            <div className="flex items-center gap-1 bg-[#f7f0e3] dark:bg-[#2d1e15] p-1 rounded-xl text-xs font-bold">
+            {/* Time Filter Pills (Scrollable horizontally on small screens) */}
+            <div className="flex items-center gap-1 bg-[#f7f0e3] dark:bg-[#2d1e15] p-1 rounded-xl text-xs font-bold overflow-x-auto scrollbar-none">
               {['Today', '7 Days', '30 Days', 'This Month'].map(tab => (
                 <button
                   key={tab}
                   onClick={() => setTimeFilter(tab)}
-                  className={`px-3 py-1.5 rounded-lg transition-all ${
+                  className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg whitespace-nowrap transition-all ${
                     timeFilter === tab
                       ? 'bg-[#92400e] text-white shadow-md'
                       : 'text-[#68442b] dark:text-[#c4b1a3] hover:text-[#2b1b10] dark:hover:text-white'
@@ -226,9 +226,9 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="h-72 w-full">
+          <div className="h-60 sm:h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={salesChartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+              <AreaChart data={salesChartData} margin={{ top: 10, right: 10, left: -15, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#92400e" stopOpacity={0.4}/>
@@ -240,13 +240,13 @@ export default function DashboardPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#ede0cb" opacity={0.6} />
-                <XAxis dataKey={timeFilter === 'Today' ? 'time' : 'name'} tick={{ fontSize: 11, fill: '#785438' }} />
-                <YAxis tick={{ fontSize: 11, fill: '#785438' }} tickFormatter={(val) => `₹${val/1000}k`} />
+                <XAxis dataKey={timeFilter === 'Today' ? 'time' : 'name'} tick={{ fontSize: 10, fill: '#785438' }} />
+                <YAxis tick={{ fontSize: 10, fill: '#785438' }} tickFormatter={(val) => `₹${val/1000}k`} />
                 <Tooltip
                   formatter={(val) => [`₹${val.toLocaleString('en-IN')}`, '']}
-                  contentStyle={{ backgroundColor: '#2b1b10', borderRadius: '12px', border: 'none', color: '#fff' }}
+                  contentStyle={{ backgroundColor: '#2b1b10', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '11px' }}
                 />
-                <Area type="monotone" dataKey="sales" name="Sales (₹)" stroke="#92400e" strokeWidth={3} fillOpacity={1} fill="url(#colorSales)" />
+                <Area type="monotone" dataKey="sales" name="Sales (₹)" stroke="#92400e" strokeWidth={2.5} fillOpacity={1} fill="url(#colorSales)" />
                 <Area type="monotone" dataKey="purchase" name="Purchase (₹)" stroke="#d97706" strokeWidth={2} fillOpacity={1} fill="url(#colorPurchase)" />
               </AreaChart>
             </ResponsiveContainer>
@@ -254,21 +254,21 @@ export default function DashboardPage() {
         </div>
 
         {/* Stock Overview Pie Chart */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-5 rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
           <div className="pb-3 border-b border-[#ede0cb] dark:border-[#3a281d]">
-            <h2 className="text-base font-bold text-[#2b1b10] dark:text-white">Stock Volume Breakdown</h2>
-            <p className="text-xs text-[#85542e] dark:text-[#c4b1a3]">Material distribution in Quarry Yard (Tons)</p>
+            <h2 className="text-sm sm:text-base font-bold text-[#2b1b10] dark:text-white">Stock Volume Breakdown</h2>
+            <p className="text-[11px] sm:text-xs text-[#85542e] dark:text-[#c4b1a3]">Material distribution in Quarry Yard (Tons)</p>
           </div>
 
-          <div className="h-56 w-full flex items-center justify-center">
+          <div className="h-48 sm:h-56 w-full flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={stockDistribution}
                   cx="50%"
                   cy="50%"
-                  innerRadius={60}
-                  outerRadius={85}
+                  innerRadius={50}
+                  outerRadius={75}
                   paddingAngle={4}
                   dataKey="value"
                 >
@@ -285,11 +285,11 @@ export default function DashboardPage() {
           <div className="space-y-1.5 text-xs">
             {stockDistribution.map((item, idx) => (
               <div key={idx} className="flex justify-between items-center text-[#68442b] dark:text-[#c4b1a3]">
-                <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }}></span>
-                  {item.name}
+                <span className="flex items-center gap-2 truncate">
+                  <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }}></span>
+                  <span className="truncate">{item.name}</span>
                 </span>
-                <span className="font-bold text-[#2b1b10] dark:text-white">{item.value} Ton</span>
+                <span className="font-bold text-[#2b1b10] dark:text-white shrink-0">{item.value} Ton</span>
               </div>
             ))}
           </div>
@@ -297,44 +297,44 @@ export default function DashboardPage() {
       </div>
 
       {/* Bottom Grid: Recent Transactions & Low Stock Alerts */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Recent Transactions Table */}
-        <div className="lg:col-span-2 bg-[#fdfbf7] dark:bg-[#231913] p-5 rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
+        <div className="lg:col-span-2 bg-[#fdfbf7] dark:bg-[#231913] p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-[#ede0cb] dark:border-[#3a281d]">
             <div>
-              <h2 className="text-base font-bold text-[#2b1b10] dark:text-white">Recent Sales Transactions</h2>
-              <p className="text-xs text-[#85542e] dark:text-[#c4b1a3]">Latest weighbridge invoices issued today</p>
+              <h2 className="text-sm sm:text-base font-bold text-[#2b1b10] dark:text-white">Recent Sales Transactions</h2>
+              <p className="text-[11px] sm:text-xs text-[#85542e] dark:text-[#c4b1a3]">Latest weighbridge invoices issued today</p>
             </div>
             <Link
               to="/inventory/sales"
               className="text-xs font-bold text-[#92400e] dark:text-[#fbbf24] hover:underline flex items-center gap-1"
             >
-              View All Invoices <ArrowRight className="w-3.5 h-3.5" />
+              View All <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+          <div className="overflow-x-auto scrollbar-thin">
+            <table className="w-full text-left text-xs min-w-[550px]">
               <thead>
                 <tr className="bg-[#f7f0e3] dark:bg-[#2d1e15] text-[#68442b] dark:text-[#c4b1a3] font-bold border-b border-[#ede0cb] dark:border-[#3a281d]">
-                  <th className="py-3 px-3">Invoice No</th>
-                  <th className="py-3 px-3">Customer</th>
-                  <th className="py-3 px-3">Date</th>
-                  <th className="py-3 px-3">Amount</th>
-                  <th className="py-3 px-3">Payment</th>
-                  <th className="py-3 px-3">Status</th>
-                  <th className="py-3 px-3 text-right">Actions</th>
+                  <th className="py-2.5 px-3">Invoice No</th>
+                  <th className="py-2.5 px-3">Customer</th>
+                  <th className="py-2.5 px-3">Date</th>
+                  <th className="py-2.5 px-3">Amount</th>
+                  <th className="py-2.5 px-3">Payment</th>
+                  <th className="py-2.5 px-3">Status</th>
+                  <th className="py-2.5 px-3 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#ede0cb]/60 dark:divide-[#3a281d] text-[#451a03] dark:text-[#f7f0e3]">
                 {invoices.slice(0, 5).map(inv => (
                   <tr key={inv.id} className="hover:bg-[#ede0cb]/50 dark:hover:bg-[#342318] transition-colors">
-                    <td className="py-3 px-3 font-bold text-[#92400e] dark:text-[#fbbf24]">{inv.id}</td>
-                    <td className="py-3 px-3 font-bold text-[#2b1b10] dark:text-white">{inv.customer}</td>
-                    <td className="py-3 px-3 text-[#785438]">{inv.date}</td>
-                    <td className="py-3 px-3 font-bold text-[#2b1b10] dark:text-white">₹{inv.grandTotal.toLocaleString('en-IN')}</td>
-                    <td className="py-3 px-3 font-medium">{inv.paymentMode}</td>
-                    <td className="py-3 px-3">
+                    <td className="py-2.5 px-3 font-bold text-[#92400e] dark:text-[#fbbf24]">{inv.id}</td>
+                    <td className="py-2.5 px-3 font-bold text-[#2b1b10] dark:text-white">{inv.customer}</td>
+                    <td className="py-2.5 px-3 text-[#785438]">{inv.date}</td>
+                    <td className="py-2.5 px-3 font-bold text-[#2b1b10] dark:text-white">₹{inv.grandTotal.toLocaleString('en-IN')}</td>
+                    <td className="py-2.5 px-3 font-medium">{inv.paymentMode}</td>
+                    <td className="py-2.5 px-3">
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                         inv.status === 'Paid'
                           ? 'bg-[#d1fae5] text-[#15803d]'
@@ -343,7 +343,7 @@ export default function DashboardPage() {
                         {inv.status}
                       </span>
                     </td>
-                    <td className="py-3 px-3 text-right">
+                    <td className="py-2.5 px-3 text-right">
                       <div className="flex items-center justify-end gap-1.5">
                         <button
                           onClick={() => setSelectedInvoice(inv)}
@@ -369,15 +369,15 @@ export default function DashboardPage() {
         </div>
 
         {/* Low Stock Alert Component */}
-        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-5 rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
+        <div className="bg-[#fdfbf7] dark:bg-[#231913] p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-sm border border-[#ede0cb] dark:border-[#3a281d] space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-[#ede0cb] dark:border-[#3a281d]">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-4 h-4" />
               </div>
               <div>
-                <h2 className="text-base font-bold text-[#2b1b10] dark:text-white">LOW STOCK ALERT</h2>
-                <p className="text-[11px] text-[#85542e]">Materials below reorder threshold</p>
+                <h2 className="text-sm sm:text-base font-bold text-[#2b1b10] dark:text-white">LOW STOCK ALERT</h2>
+                <p className="text-[11px] text-[#85542e]">Materials below threshold</p>
               </div>
             </div>
             <span className="px-2 py-0.5 bg-rose-100 text-rose-700 font-extrabold text-[10px] rounded-full">
@@ -385,17 +385,16 @@ export default function DashboardPage() {
             </span>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {lowStockItems.map(item => (
               <div
                 key={item.id}
-                className="p-3 bg-rose-50/60 dark:bg-rose-950/20 rounded-2xl border border-rose-200 dark:border-rose-900/40 flex items-center justify-between"
+                className="p-3 bg-rose-50/60 dark:bg-rose-950/20 rounded-xl sm:rounded-2xl border border-rose-200 dark:border-rose-900/40 flex items-center justify-between"
               >
                 <div>
                   <h4 className="font-bold text-xs text-[#2b1b10] dark:text-white">{item.name}</h4>
-                  <div className="flex items-center gap-3 text-[11px] text-[#785438] mt-0.5">
+                  <div className="flex items-center gap-2 text-[11px] text-[#785438] mt-0.5">
                     <span>Code: <strong>{item.code}</strong></span>
-                    <span>Min Threshold: <strong>{item.minStock} {item.unit}</strong></span>
                   </div>
                 </div>
 
@@ -411,7 +410,7 @@ export default function DashboardPage() {
 
           <button
             onClick={() => navigate('/inventory/stock')}
-            className="w-full py-2.5 bg-[#f7f0e3] dark:bg-[#2d1e15] hover:bg-[#ede0cb] text-[#543722] dark:text-[#f7f0e3] text-xs font-bold rounded-2xl transition-colors text-center block"
+            className="w-full py-2.5 bg-[#f7f0e3] dark:bg-[#2d1e15] hover:bg-[#ede0cb] text-[#543722] dark:text-[#f7f0e3] text-xs font-bold rounded-xl sm:rounded-2xl transition-colors text-center block"
           >
             Manage Stock Adjustments →
           </button>
